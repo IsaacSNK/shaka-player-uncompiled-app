@@ -1,0 +1,17 @@
+{
+  "name": "shaka-player-uncompiled-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "google-closure-compiler": "^20220601.0.0",
+    "google-closure-library": "^20220502.0.0",
+    "shaka-player": "^3.3.4"
+  }
+}
