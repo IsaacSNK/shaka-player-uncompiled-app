@@ -12,6 +12,9 @@
   "dependencies": {
     "google-closure-compiler": "^20220601.0.0",
     "google-closure-library": "^20220502.0.0",
-    "shaka-player": "^3.3.4"
+    "shaka-player": "^4.3.4"
+  },
+  "devDependencies": {
+    "selfsigned": "^2.1.1"
   }
 }

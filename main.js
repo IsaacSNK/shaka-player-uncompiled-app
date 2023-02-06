@@ -1,4 +1,4 @@
-const http = require('http');
+const http = require('https');
 const fs = require('fs');
 const port = 8080;
 
@@ -18,7 +18,7 @@ const handledWithRedirect = (req, res) => {
     ];
     const shouldRedirect = redirectPrefixes.find((prefix) => req.url.startsWith(prefix))
     if (shouldRedirect) {
-        const destination = `http://localhost:${port}/node_modules/shaka-player${req.url}`;
+        const destination = `https://localhost:${port}/node_modules/shaka-player${req.url}`;
         console.log(`Redirecting ${req.url} to ${destination}`);
         redirect(destination, res);
         return true;
@@ -45,5 +45,9 @@ const writeFileContent = (req, res) => {
     });
 };
 
-const server = http.createServer(requestListener);
+const options = {
+    key: fs.readFileSync('ssl/localhost.key'),
+    cert: fs.readFileSync('ssl/localhost.crt')
+};
+const server = http.createServer(options, requestListener);
 server.listen(port);
