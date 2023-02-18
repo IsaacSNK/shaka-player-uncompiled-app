@@ -2,7 +2,7 @@ const manifestUri = 'https://storage.googleapis.com/shaka-demo-assets/angel-one/
 
 function initApp() {
   shaka.polyfill.installAll();
-
+  shaka.log.setLevel(shaka.log.Level.V2);
   if (shaka.Player.isBrowserSupported()) {
     initPlayer();
   } else {
@@ -12,18 +12,12 @@ function initApp() {
 
 async function initPlayer() {
   const video = document.getElementById('video');
-  const player = new shaka.Player(video);
-  player.configure({
-    streaming: {
-      bufferingGoal: 30,
-      rebufferingGoal: 5,
-    }
-  });
-
+  const player = new shaka.Player(video);  
   window.player = player;
+  
   player.addEventListener('error', onErrorEvent);
   try {
-    await player.load(manifestUri);
+    await player.load(manifestUri, null, 'application/dash+xml');
     console.log('The video has now been loaded!');
   } catch (e) {
     onError(e);
