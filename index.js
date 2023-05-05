@@ -1,4 +1,4 @@
-const manifestUri = 'https://localhost:7253/transform/videomanifest/asdf?provider=url&docId=https://bigbuckbunny.blob.core.windows.net/bbb/bigbuckbunny_trailer_flipped.mov&format=dash&part=index'
+const manifestUri = 'https://storage.googleapis.com/shaka-demo-assets/angel-one/dash.mpd';
 
 function initApp() {
   shaka.polyfill.installAll();
